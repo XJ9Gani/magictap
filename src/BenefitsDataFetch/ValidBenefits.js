@@ -16,7 +16,7 @@ class ValidBenefits extends Component {
   fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://195.210.47.82:8000/facility/main/facalities/"
+        "http://195.210.47.82:8000/benefit/main/benefits/"
       );
       this.setState({ facilities: response.data });
     } catch (error) {
@@ -32,6 +32,11 @@ class ValidBenefits extends Component {
           <div className="benefits__container">
             {this.state.facilities.map((facility, index) => (
               <div key={index} className="benefits__item">
+                <img
+                  src={facility.photo}
+                  alt="icon"
+                  className="benefits__item__icon"
+                />
                 <h1 className="benefits__item__title">{facility.name}</h1>
                 <h4 className="benefits__item__subtitle">
                   Programs count: {facility.count}
